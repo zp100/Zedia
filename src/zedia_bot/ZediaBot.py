@@ -491,7 +491,9 @@ class ZediaBot(discord.Client):
                 info = ytdl.extract_info(f"ytsearch{results_count}:{query}", download=False)
             except Exception as e:
                 await self.err_search_failed(query)
+                print(' -- Error -- ')
                 print(e)
+                return None
 
         return info['entries']
 
@@ -509,7 +511,9 @@ class ZediaBot(discord.Client):
                 source = discord.FFmpegPCMAudio(info['url'])
             except Exception as e:
                 await self.err_audio_failed(url)
+                print(' -- Error -- ')
                 print(e)
+                return
 
         # Connect to the author's voice channel, if needed.
         if self.client is None:
