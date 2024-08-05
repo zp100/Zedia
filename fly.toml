@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for zedia on 2024-08-05T09:25:04-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'zedia'
+primary_region = 'sea'
+
+[build]
+  builder = 'paketobuildpacks/builder:base'
+
+[env]
+  PORT = '8080'
+
+[http_service]
+  internal_port = 8080
+  protocol = 'tcp'
+  force_https = true
+  auto_start_machines = true
+  auto_stop_machines = false # prevent automatic suspension
+  min_machines_running = 1 # keep a machine running at all times
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
