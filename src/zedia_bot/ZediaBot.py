@@ -510,9 +510,7 @@ class ZediaBot(discord.Client):
                 info = ytdl.extract_info(url, download=False)
                 source = discord.FFmpegPCMAudio(info['url'])
             except Exception as e:
-                await self.err_audio_failed(url)
-                print(' -- Error -- ')
-                print(e)
+                await self.err_audio_failed(url, e)
                 return
 
         # Connect to the author's voice channel, if needed.
