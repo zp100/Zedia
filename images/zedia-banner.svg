@@ -1,0 +1,104 @@
+<svg viewBox="0 -6 200 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rainbow">
+      <stop offset="0%"   stop-color="#c33"/>
+      <stop offset="50%"  stop-color="#3c3"/>
+      <stop offset="100%" stop-color="#33c"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="-6" width="200" height="100" fill="#111" />
+
+  <path fill="transparent" stroke-width="1" stroke-linecap="round" stroke="#333" d="
+    M -29 12
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+
+    M 0 0
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+
+    M 29 -12
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+
+    M 58 -24
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+
+    M 97 -11
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+
+    M 126 -23
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+
+    M 155 -35
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+    l 35 0
+    l -25 25
+  " />
+
+  <path fill="transparent" stroke-width="2" stroke-linecap="round" stroke="url(#rainbow)" d="
+    M 78 26
+    l 35 0
+    l -25 25
+    l 35 0
+  " />
+</svg>
