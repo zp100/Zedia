@@ -293,12 +293,12 @@ class ZediaBot(discord.Client):
         await self.send_error_embed('You and the bot aren\'t in the same voice channel')
 
 
-    async def err_search_failed(self: Self, query: str):
-        await self.send_error_embed(f"Failed to load results for \"{query}\"")
+    async def err_search_failed(self: Self, query: str, error: Exception):
+        await self.send_error_embed(f"Failed to load results for \"{query}\"", error)
 
 
-    async def err_audio_failed(self: Self, url: str):
-        await self.send_error_embed(f"Failed to load audio from \"{url}\"")
+    async def err_audio_failed(self: Self, url: str, error: Exception):
+        await self.send_error_embed(f"Failed to load audio from \"{url}\"", error)
 
 
     ################################################################
@@ -327,8 +327,8 @@ class ZediaBot(discord.Client):
         await self.send_embed(self.get_playing_embed(url, info))
 
 
-    async def send_error_embed(self: Self, desc: str):
-        await self.send_embed(self.get_error_embed(desc))
+    async def send_error_embed(self: Self, desc: str, error: Exception | None = None):
+        await self.send_embed(self.get_error_embed(desc, error))
 
 
     async def send_embed(self: Self, embed: discord.Embed):
@@ -470,7 +470,9 @@ class ZediaBot(discord.Client):
         return embed
 
 
-    def get_error_embed(self: Self, desc: str):
+    def get_error_embed(self: Self, desc: str, error: Exception | None = None):
+        if error is not None:
+            desc += f"\n\nRaised error: {error}"
         desc += f"\n\nUse \"{self.get_mention()} help\" for more info"
         embed = discord.Embed(
             colour=0xCC3333,
@@ -490,9 +492,7 @@ class ZediaBot(discord.Client):
             try:
                 info = ytdl.extract_info(f"ytsearch{results_count}:{query}", download=False)
             except Exception as e:
-                await self.err_search_failed(query)
-                print(' -- Error -- ')
-                print(e)
+                await self.err_search_failed(query, e)
                 return None
 
         return info['entries']
