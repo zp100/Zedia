@@ -489,10 +489,10 @@ class ZediaBot(discord.Client):
         with yt_dlp.YoutubeDL(YTDL_OPTIONS) as ytdl:
             try:
                 info = ytdl.extract_info(f"ytsearch{results_count}:{query}", download=False)
-            except:
+            except Exception as e:
                 await self.err_search_failed(query)
-                return None
-            
+                print(e)
+
         return info['entries']
 
 
@@ -507,9 +507,9 @@ class ZediaBot(discord.Client):
             try:
                 info = ytdl.extract_info(url, download=False)
                 source = discord.FFmpegPCMAudio(info['url'])
-            except:
+            except Exception as e:
                 await self.err_audio_failed(url)
-                return
+                print(e)
 
         # Connect to the author's voice channel, if needed.
         if self.client is None:
