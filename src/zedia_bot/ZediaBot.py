@@ -225,7 +225,7 @@ class ZediaBot(discord.Client):
         else:
             url = args[0]
             self.audio_queue.append(url)
-            await self.send_simple_embed(f"Added \"{url}\" to queue\nLength of queue: {len(self.audio_queue)}")
+            await self.send_simple_embed(f"Added \"{url}\" to queue\n\nLength of queue: {len(self.audio_queue)}")
 
 
     async def cmd_skip(self: Self, args: list[str]):
