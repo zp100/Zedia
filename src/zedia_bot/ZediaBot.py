@@ -225,8 +225,7 @@ class ZediaBot(discord.Client):
         else:
             url = args[0]
             self.audio_queue.append(url)
-            await self.send_simple_embed(f"Added \"{url}\" to queue")
-            await self.send_simple_embed(f"Length of queue: {len(self.audio_queue)}")
+            await self.send_simple_embed(f"Added \"{url}\" to queue\nLength of queue: {len(self.audio_queue)}")
 
 
     async def cmd_skip(self: Self, args: list[str]):
@@ -533,7 +532,7 @@ class ZediaBot(discord.Client):
         if self.client is None:
             await self.err_no_voice_client()
             return
-        
+
         self.client.stop()
         self.current_url = None
         await self.send_simple_embed('Audio stopped')
@@ -543,7 +542,7 @@ class ZediaBot(discord.Client):
         if len(self.audio_queue) == 0:
             await self.send_simple_embed('Queue is empty')
             return
-        
+
         message = f"Length of queue: {len(self.audio_queue)}\n"
         index = 1
         for url in self.audio_queue:
@@ -556,7 +555,7 @@ class ZediaBot(discord.Client):
         if len(self.audio_queue) == 0:
             await self.send_simple_embed('Queue is empty')
             return
-        
+
         self.audio_queue.clear()
         await self.send_simple_embed('Queue cleared')
 

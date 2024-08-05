@@ -5,7 +5,7 @@
       <stop offset="50%"  stop-color="#3c3"/>
       <stop offset="100%" stop-color="#33c"/>
     </linearGradient>
-  
+
     <linearGradient id="shiny" gradientTransform="rotate(90)">
       <stop offset="0%"   stop-color="#fff"/>
       <stop offset="100%" stop-color="#999"/>
