@@ -1,0 +1,46 @@
+<svg viewBox="-150 -160 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rainbow">
+      <stop offset="0%"   stop-color="#c33"/>
+      <stop offset="50%"  stop-color="#3c3"/>
+      <stop offset="100%" stop-color="#33c"/>
+    </linearGradient>
+  
+    <linearGradient id="shiny" gradientTransform="rotate(90)">
+      <stop offset="0%"   stop-color="#fff"/>
+      <stop offset="100%" stop-color="#999"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="-150" y="-160" width="300" height="300" fill="#111" />
+
+  <path fill="transparent" stroke-width="16" stroke-linecap="round" stroke="url(#rainbow)" d="
+    M 75 -49.61
+    A 100 75 0 1 1 -75 -49.61
+    L -75 -100
+    L -42.79 -67.79
+    A 100 75 0 0 1 42.79 -67.79
+    L 75 -100
+    L 75 -49.61
+    Z
+    M -75.90 -18.97
+    L -113.84 -28.46
+    M -80 0
+    L -120 0
+    M -75.90 18.97
+    L -113.84 28.46
+    M 75.90 -18.97
+    L 113.84 -28.46
+    M 80 0
+    L 120 0
+    M 75.90 18.97
+    L 113.84 28.46
+  " />
+
+  <path fill="url(#shiny)" stroke-width="0" d="
+    M -25.31 35
+    L -25.31 -35
+    L 35.31 0
+    Z
+  " />
+</svg>
