@@ -1,6 +1,5 @@
 import asyncio
 import discord
-import os
 import yt_dlp
 
 from typing import TypeVar
@@ -8,7 +7,6 @@ Self = TypeVar("Self", bound="ZediaBot")
 
 
 # Set up YouTube downloader options.
-po_token = os.environ['PO_TOKEN']
 YTDL_OPTIONS = {
     'format': 'bestaudio/best',
     'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
@@ -20,17 +18,6 @@ YTDL_OPTIONS = {
             'preferredquality': '192',
         }
     ],
-    'extractor_args': {
-        'youtube': {
-            'player_client': [
-                'web',
-                'default',
-            ],
-            'po_token': [
-                f"web+{po_token}",
-            ],
-        },
-    },
 }
 
 
