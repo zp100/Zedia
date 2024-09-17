@@ -18,6 +18,8 @@ YTDL_OPTIONS = {
             'preferredquality': '192',
         }
     ],
+    'username': 'OAuth2',
+    'password': '',
 }
 
 
