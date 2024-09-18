@@ -18,6 +18,7 @@ YTDL_OPTIONS = {
             'preferredquality': '192',
         }
     ],
+    'cookiefile': 'assets/cookies.firefox-private.txt',
 }
 
 
@@ -331,11 +332,12 @@ class ZediaBot(discord.Bot):
 
 
     async def send_embed(self: Self, embed: discord.Embed):
-        if self.is_loading:
+        if (self.is_loading) and (self.last_message is not None):
             await self.last_message.edit(embed=embed)
-            self.is_loading = False
         else:
             await self.tc.send(embed=embed)
+
+        self.is_loading = False
 
 
     def get_loading_embed(self: Self):
